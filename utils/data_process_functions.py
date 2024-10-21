@@ -25,17 +25,17 @@ def data_labels(access_df, five_hundred_df):
 
     # Low Access Demographics columns names (count)
     demography_labs_cnt = [col for col in access_df.columns if '10' not in col and 'PCT' not in col and
-                    any(sub in col for sub in ['CHILD', 'SENIOR', 'WHITE', 'BLACK', 'HISP', 'MULTI', 'ASIA', 'NHNA', 'NHP'])]
+                    any(sub in col for sub in ['CHILD', 'SENIOR', 'WHITE', 'BLACK', 'HISP', 'ASIA', 'NHNA', 'NHP'])]
 
     # Low Access Demographics columns names (percent)
     demography_labs_pct = [col for col in access_df.columns if '10' not in col and 'PCT' in col and
                     any(sub in col for sub in ['CHILD', 'SENIOR', 'WHITE', 'BLACK', 'HISP', 'ASIA', 'NHNA', 'NHP'])]
 
     # Low Access columns names (percent)
-    percent_labs = [col for col in access_df.columns if 'PCT' in col and not any(sub in col for sub in demography_labs_pct + ['PCH', '10'])]
+    percent_labs = [col for col in access_df.columns if 'PCT' in col and not any(sub in col for sub in demography_labs_pct + ['PCH', '10', 'MULTI'])]
     
     # Low Access columns names (count)
-    count_labs = [col for col in access_df.columns if 'LACCESS' in col and not any(sub in col for sub in demography_labs_cnt + ['PCT', 'PCH', '10'])]
+    count_labs = [col for col in access_df.columns if 'LACCESS' in col and not any(sub in col for sub in demography_labs_cnt + ['PCT', 'PCH', '10', 'MULTI'])]
     
     change_labs = [col for col in access_df.columns if 'PCH' in col]
     
